@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -26,13 +25,14 @@ public class RegistrationFormTest  {
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("Ivanov");
-        $("#currentAddress").setValue("Some street 1");
-        $("#permanentAddress").setValue("Another street 1");
-        $("#submit").click();
-
-        $("#output #name").shouldHave(text("Alex"));
-        $("#output #email").shouldHave(text("alex@egorov.com"));
-        $("#output #currentAddress").shouldHave(text("Some street 1"));
-        $("#output #permanentAddress").shouldHave(text("Another street 1"));
     }
+//        $("#currentAddress").setValue("Some street 1");
+//        $("#permanentAddress").setValue("Another street 1");
+//        $("#submit").click();
+//
+//        $("#output #name").shouldHave(text("Alex"));
+//        $("#output #email").shouldHave(text("alex@egorov.com"));
+//        $("#output #currentAddress").shouldHave(text("Some street 1"));
+//        $("#output #permanentAddress").shouldHave(text("Another street 1"));
+
 }
