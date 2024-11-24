@@ -1,12 +1,8 @@
 package tests;
 
-
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -14,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
-public class        RegistrationFormTest  {
+public class  RegistrationFormTest  {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
@@ -26,7 +22,7 @@ public class        RegistrationFormTest  {
     }
 
     @Test
-    void RegistrationTest() {
+    void registrationTest() {
         open("/automation-practice-form");
         //Name
         $("#firstName").setValue("Ivan");
@@ -55,7 +51,7 @@ public class        RegistrationFormTest  {
         $("#hobbiesWrapper").$(byText("Reading")).click();
 
         //Picture
-        $("#uploadPicture").uploadFile(new File("C:\\Users\\Trek119\\Pictures\\Camera Roll\\Screenshot_5.png"));
+        $("#uploadPicture").uploadFromClasspath("Test.jpg");
 
         //Current Address
         $("#currentAddress").setValue("Red street");
@@ -68,16 +64,16 @@ public class        RegistrationFormTest  {
         //Checking the result
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
 
-        $(".table").shouldHave(text("Student Name")).shouldHave(text("Ivan Ivanov"));
-        $(".table").shouldHave(text("Student Email")).shouldHave(text("Ivanov@gmail.com"));
-        $(".table").shouldHave(text("Gender")).shouldHave(text("Male"));
-        $(".table").shouldHave(text("Mobile")).shouldHave(text("7910111111"));
-        $(".table").shouldHave(text("Date of Birth")).shouldHave(text("13 November,2013"));
-        $(".table").shouldHave(text("Subjects")).shouldHave(text("History, Physics"));
-        $(".table").shouldHave(text("Hobbies")).shouldHave(text("Reading"));
-        $(".table").shouldHave(text("Picture")).shouldHave(text("Screenshot_5.png"));
-        $(".table").shouldHave(text("Address")).shouldHave(text("Red street"));
-        $(".table").shouldHave(text("State and City")).shouldHave(text("NCR Noida"));
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Ivan Ivanov"));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("Ivanov@gmail.com"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("7910111111"));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("13 November,2013"));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("History, Physics"));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Reading"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("test.jpg"));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Red street"));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Noida"));
     }
 
 }
