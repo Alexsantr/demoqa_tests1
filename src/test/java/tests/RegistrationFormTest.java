@@ -18,7 +18,6 @@ public class  RegistrationFormTest  {
         Configuration.pageLoadStrategy = "eager";
 
 
-
     }
 
     @Test
