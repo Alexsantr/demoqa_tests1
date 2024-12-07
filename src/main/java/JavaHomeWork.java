@@ -10,17 +10,25 @@ public class JavaHomeWork {
         System.out.println(oInt *tInt);
         System.out.println(oInt /tInt);
 
+        System.out.println("\n"+"Логические операции");
+        System.out.println(oInt==tInt);
+        System.out.println(oInt!=tInt);
+        System.out.println(oInt==3&&tInt==23);
+        System.out.println(oInt==6||tInt==233);
+
         System.out.println("\n"+"Арифметические операторы int and double ");
         System.out.println(oInt +fDouble);
         System.out.println(oInt -fDouble);
         System.out.println(oInt *fDouble);
         System.out.println(oInt /fDouble);
 
-        System.out.println("\n"+"Логические операторы");
+        System.out.println("\n"+"Операторы сравнения");
         System.out.println(oInt >fDouble);
         System.out.println(oInt <fDouble);
         System.out.println(oInt >=fDouble);
         System.out.println(oInt <=fDouble);
+
+
 
         System.out.println("\n"+"Минимальные и максимальнгые занчения float and double вещественные типы и приметивные int and byte");
         System.out.println("Float.MIN_VALUE: " + Float.MIN_VALUE);
