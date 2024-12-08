@@ -1,4 +1,4 @@
-package tests;
+package testingnore;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.DragAndDropOptions;

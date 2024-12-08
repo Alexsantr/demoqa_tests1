@@ -1,4 +1,4 @@
-package tests;
+package testingnore;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -12,7 +12,7 @@ public class HomeTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "http://localhost:63342/demoqa_tests1/demoqa_tests1.test/%D1%81%D0%B0%D0%B9%D1%82.html?_ijt=jpm7khbco1e90l274554on8b5b&_ij_reload=RELOAD_ON_SAVE";
+        Configuration.baseUrl = "file:///C:/Users/Trek119/IdeaProjects/demoqa_tests1/src/test/resources/%D1%81%D0%B0%D0%B9%D1%82.html";
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen=true;
 

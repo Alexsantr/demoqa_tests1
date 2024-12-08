@@ -1,4 +1,4 @@
-package tests;
+package testingnore;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -23,7 +23,8 @@ public class  RegistrationFormTest  {
     @Test
     void registrationTest() {
         open("/automation-practice-form");
-        //Name
+
+
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Ivanov");
 
