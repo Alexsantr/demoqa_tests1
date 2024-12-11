@@ -1,23 +1,21 @@
 package tests;
-
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import until.TestData;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 
+
 public class RegistrationWithPageObjectsTests extends TestSetting {
 
-    RegistrationPage registrationPage = new RegistrationPage();
-    DateFormat dateFormat = new SimpleDateFormat("dd MMMMM,yyyy", Locale.UK);
-    Date date =new Date();
-    String time = dateFormat.format(date);
-    TestData testData = new TestData();
 
+    RegistrationPage registrationPage = new RegistrationPage();
+    TestData testData = new TestData();
+    DateFormat dateFormat = new SimpleDateFormat("dd MMMMM,yyyy", Locale.UK);
+    String timeToDay = dateFormat.format(new Date());
 
     @Test
     void successfulRegistrationTest() {
@@ -27,7 +25,7 @@ public class RegistrationWithPageObjectsTests extends TestSetting {
                 .setEmail(testData.userEmail)
                 .setGender(testData.gender)
                 .setUserNumber(testData.telephoneNumber)
-                .setDateOfBirth(testData.userBirthDay, testData.userBirthMonth, testData.userBirthYear)
+                .setDateOfBirth(testData.BirthDay, testData.BirthMonth, testData.BirthYear)
                 .subjectsInput(testData.subject)
                 .hobbiesWrapperInput(testData.hobbies)
                 .uploadPictureInput(testData.picture)
@@ -42,7 +40,7 @@ public class RegistrationWithPageObjectsTests extends TestSetting {
                 .checkResultTable("Student Email",testData.userEmail )
                 .checkResultTable("Gender", testData.gender)
                 .checkResultTable("Mobile", testData.telephoneNumber)
-                .checkResultTable("Date of Birth",testData.userBirthDay+ " " +testData.userBirthMonth+ "," +testData.userBirthYear)
+                .checkResultTable("Date of Birth",testData.BirthDay+ " " +testData.BirthMonth+ "," +testData.BirthYear)
                 .checkResultTable("Subjects", testData.subject)
                 .checkResultTable("Hobbies", testData.hobbies)
                 .checkResultTable("Picture", testData.picture)
@@ -64,16 +62,13 @@ public class RegistrationWithPageObjectsTests extends TestSetting {
             .checkResultTable("Student Name", testData.firstName+" "+testData.lastName)
             .checkResultTable("Mobile", testData.telephoneNumber)
             .checkResultTable("Gender", testData.gender)
-            .checkResultTable("Date of Birth", time);
+            .checkResultTable("Date of Birth", timeToDay);
     }
 
     @Test
     void notSuccessMinFullRegistrationTest() {registrationPage.openPage()
             .submit()
             .CheckLineRedColor();
-
-
-
     }
 
 }
