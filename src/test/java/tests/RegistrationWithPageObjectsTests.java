@@ -2,6 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+import until.TestData;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -15,54 +16,54 @@ public class RegistrationWithPageObjectsTests extends TestSetting {
     DateFormat dateFormat = new SimpleDateFormat("dd MMMMM,yyyy", Locale.UK);
     Date date =new Date();
     String time = dateFormat.format(date);
+    TestData testData = new TestData();
 
 
     @Test
     void successfulRegistrationTest() {
         registrationPage.openPage()
-                .setFirstName("Ivan")
-                .setLastName("Ivanov")
-                .setEmail("Ivanov@gmail.com")
-                .setGender("Male")
-                .setUserNumber("79101111111")
-                .setDateOfBirth("13", "November", "2013")
-                .subjectsInput("History")
-                .subjectsInput("Physics")
-                .hobbiesWrapperInput("Reading")
-                .uploadPictureInput("Test.jpg")
-                .currentAddressInput("Red street")
-                .cityInput("NCR")
-                .nexCityInput("Noida")
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setEmail(testData.userEmail)
+                .setGender(testData.gender)
+                .setUserNumber(testData.telephoneNumber)
+                .setDateOfBirth(testData.userBirthDay, testData.userBirthMonth, testData.userBirthYear)
+                .subjectsInput(testData.subject)
+                .hobbiesWrapperInput(testData.hobbies)
+                .uploadPictureInput(testData.picture)
+                .currentAddressInput(testData.userAddress)
+                .cityInput(testData.userState)
+                .nexCityInput(testData.userCity)
                 .submit()
 
 
                 .submissionModal("Thanks for submitting the form")
-                .checkResultTable("Student Name", "Ivan Ivanov")
-                .checkResultTable("Student Email", "Ivanov@gmail.com")
-                .checkResultTable("Gender", "Male")
-                .checkResultTable("Mobile", "7910111111")
-                .checkResultTable("Date of Birth", "13 November,2013")
-                .checkResultTable("Subjects", "History, Physics")
-                .checkResultTable("Hobbies", "Reading")
-                .checkResultTable("Picture", "Test.jpg")
-                .checkResultTable("Address", "Red street")
-                .checkResultTable("State and City", "NCR Noida");
+                .checkResultTable("Student Name", testData.firstName+ " " +testData.lastName)
+                .checkResultTable("Student Email",testData.userEmail )
+                .checkResultTable("Gender", testData.gender)
+                .checkResultTable("Mobile", testData.telephoneNumber)
+                .checkResultTable("Date of Birth",testData.userBirthDay+ " " +testData.userBirthMonth+ "," +testData.userBirthYear)
+                .checkResultTable("Subjects", testData.subject)
+                .checkResultTable("Hobbies", testData.hobbies)
+                .checkResultTable("Picture", testData.picture)
+                .checkResultTable("Address", testData.userAddress)
+                .checkResultTable("State and City", testData.userState+" "+testData.userCity);
     }
 
 
     @Test
     void successMinFullRegistrationTest() {registrationPage.openPage()
-            .setFirstName("Ivan")
-            .setLastName("Ivanov")
-            .setUserNumber("79101111111")
-            .setGender("Male")
+            .setFirstName(testData.firstName)
+            .setLastName(testData.lastName)
+            .setGender(testData.gender)
+            .setUserNumber(testData.telephoneNumber)
             .submit()
 
 
             .submissionModal("Thanks for submitting the form")
-            .checkResultTable("Student Name", "Ivan Ivanov")
-            .checkResultTable("Mobile", "7910111111")
-            .checkResultTable("Gender", "Male")
+            .checkResultTable("Student Name", testData.firstName+" "+testData.lastName)
+            .checkResultTable("Mobile", testData.telephoneNumber)
+            .checkResultTable("Gender", testData.gender)
             .checkResultTable("Date of Birth", time);
     }
 
