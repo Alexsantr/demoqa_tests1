@@ -57,7 +57,7 @@ public class AutoDromTests extends TestDromSetting {
     }
 
     @MethodSource
-    @ParameterizedTest(name = "Должен проверять модели автомобилей по их марке ")
+    @ParameterizedTest(name = "Должен проверять модели автомобилей по их марке {0}")
     @Tag("Smoke")
     void findModelCars(CarName carName, List<String> models) {
         autoDromPage.getCarName(carName)
