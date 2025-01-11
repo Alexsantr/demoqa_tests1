@@ -1,0 +1,14 @@
+{
+  "profile": {
+    "id": 123,
+    "name": "Amos"
+  },
+  "friends": [
+    {
+      "name": "Jim"
+    },
+    {
+      "name": "Alex"
+    }
+  ]
+}
